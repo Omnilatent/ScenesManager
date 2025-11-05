@@ -38,7 +38,8 @@ namespace Omnilatent.ScenesManager
         // Shield & Transition
         [SerializeField] Image m_Shield; //block interaction
         [SerializeField] SceneTransitionShield sceneTransitionShield;
-        [SerializeField] Color m_ShieldColor = Color.black;
+        [SerializeField] Color m_ShieldColor = new Color(0f, 0f, 0f, 0.45f);
+        public Color ShieldColor { get => m_ShieldColor; set => m_ShieldColor = value; }
 
         [SerializeField] GameObject m_BgCamera;
         [SerializeField] Camera m_UiCamera;

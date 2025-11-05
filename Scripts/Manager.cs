@@ -81,7 +81,7 @@ namespace Omnilatent.ScenesManager
 
             SceneManager.sceneLoaded += OnUnitySceneLoaded;
 
-            ShieldColor = new Color(0f, 0f, 0f, 0.45f);
+            // ShieldColor = new Color(0f, 0f, 0f, 0.45f);
             SceneFadeDuration = 0.15f;
             SceneAnimationDuration = 0.283f;
 
@@ -90,6 +90,7 @@ namespace Omnilatent.ScenesManager
             managerObjectName = "ManagerObjectURP";
 #endif
             Object = ((GameObject)GameObject.Instantiate(Resources.Load(System.IO.Path.Combine(resourcePath, managerObjectName)))).GetComponent<ManagerObject>();
+            ShieldColor = Object.ShieldColor;
         }
 
         private static void OnUnitySceneLoaded(Scene scene, LoadSceneMode mode)
