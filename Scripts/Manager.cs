@@ -77,7 +77,13 @@ namespace Omnilatent.ScenesManager
 
         static Manager()
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            // -1 on WebGL triggers emscripten_set_main_loop(fps=0) → requestAnimationFrame.
+            // Any positive value uses setTimeout, throttled and frame-dropping.
+            Application.targetFrameRate = -1;
+#else
             Application.targetFrameRate = 60;
+#endif
 
             SceneManager.sceneLoaded += OnUnitySceneLoaded;
 
