@@ -2,9 +2,10 @@
     "name": "Omnilatent.ScenesManager",
     "rootNamespace": "",
     "references": [
-        "SimpleAnimation",
+        "GUID:85e4701422ee3014e9bc8252557326e2",
         "GUID:15fc0a57446b3144c949da3e2b9737a9",
-        "DOTween.Modules"
+        "GUID:756ba5071883e62499ffbcde4878a99c",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
