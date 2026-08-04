@@ -1,4 +1,17 @@
-﻿# 1.2.1
+﻿# 1.2.2
+New Features:
+- Add MainCameraOverride component to correctly manage the URP camera stack when a runtime-created camera overrides the manager's background camera.
+- Editor: automatically declare scripting define symbol OMNILATENT_SCENESMANAGER on installation.
+
+Changes:
+- ManagerObject: expose ShieldColor property; Manager now reads the default shield color from ManagerObject instead of a hardcoded value, so the shield color stays consistent when starting from a different scene.
+- Deprecate ActivateManagerCameraOnDestroy in favor of MainCameraOverride.
+
+Fixes:
+- Guard UnityEngine.InputSystem usage behind ENABLE_INPUT_SYSTEM so the package compiles when the new Input System package isn't installed.
+- Update asmdef references (SimpleAnimation, DOTween) to GUID references to fix broken/missing assembly references.
+
+# 1.2.1
 New Features:
 - Add onSceneAdded event.
 - LoadingAnywhere: Add GetCachedLoadingScreen() function.

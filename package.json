@@ -1,7 +1,7 @@
 {
     "name": "com.omnilatent.scenesmanager",
     "displayName": "Omni Scenes Manager",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "unity": "2018.1",
     "description": "Manage scenes, pass data between scenes.",
     "keywords": ["scene","manager"],
