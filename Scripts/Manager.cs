@@ -147,8 +147,8 @@ namespace Omnilatent.ScenesManager
                 // Main Scene
                 m_MainController = sender;
 
-                // Fade
-                Object.FadeInScene();
+                // Fade — held under the shield until the scene says it is ready to be seen.
+                FadeInWhenReady(sender);
                 onSceneLoaded?.Invoke(sender);
             }
             else
@@ -157,6 +157,18 @@ namespace Omnilatent.ScenesManager
                 sender.Show();
                 onSceneAdded?.Invoke(sender);
             }
+        }
+
+        static async void FadeInWhenReady(Controller sender)
+        {
+            // An exception here is logged by Unity and leaves the shield up: better than revealing a broken scene.
+            await sender.WaitUntilReadyToShow();
+
+            // Another main scene may have been loaded while waiting.
+            if (sender == null || m_MainController != sender)
+                return;
+
+            Object.FadeInScene();
         }
 
         /// <summary>

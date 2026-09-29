@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -152,6 +153,13 @@ namespace Omnilatent.ScenesManager
         public virtual void OnShown()
         {
         }
+
+        /// <summary>
+        /// A main scene is revealed (the transition shield fades in) only after this completes, so a scene that
+        /// streams in more content after it loads can stay covered until it is ready. Called after
+        /// <see cref="OnActive"/>. Completes immediately by default.
+        /// </summary>
+        public virtual Task WaitUntilReadyToShow() => Task.CompletedTask;
 
         /// <summary>
         /// This event is raised right after player pushs the ESC button on keyboard or Back button on android devices.
